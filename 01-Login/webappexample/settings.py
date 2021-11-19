@@ -147,5 +147,5 @@ AUTHENTICATION_BACKENDS = {
 }
 
 
-LOGIN_URL = '/login/auth0'
+LOGIN_URL = '/login/sf'
 LOGIN_REDIRECT_URL = '/dashboard'

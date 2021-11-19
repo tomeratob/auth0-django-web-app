@@ -19,7 +19,7 @@ def index(request):
 @login_required
 def dashboard(request):
     user = request.user
-    sf_user = user.social_auth.get(provider='sfc')
+    sf_user = user.social_auth.get()   # (provider='sfc')
     userdata = {
         'user_id': user.id,
         'user_urn': sf_user.uid,
