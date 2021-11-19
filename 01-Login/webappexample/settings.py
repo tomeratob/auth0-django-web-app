@@ -134,11 +134,14 @@ KEY = os.environ.get('CLIENT_ID')
 SECRET = os.environ.get('CLIENT_SECRET')
 OIDC_DOMAIN = os.environ.get('OIDC_DOMAIN')
 AUDIENCE = None
-# SOCIAL_AUTH_SFC_USER_FIELDS = ['username', 'email', 'organization_id']
-SOCIAL_AUTH_SFC_NO_DEFAULT_PROTECTED_USER_FIELDS = True
+
+SOCIAL_AUTH_SF_EXTRA_DATA = ['organization_id', 'user_id']
+SOCIAL_AUTH_SFSB_EXTRA_DATA = ['organization_id', 'user_id']
 SOCIAL_AUTH_SFC_EXTRA_DATA = ['organization_id', 'user_id']
 
 AUTHENTICATION_BACKENDS = {
+    'auth0login.sfbackend.Prod',
+    'auth0login.sfbackend.Sandbox',
     'auth0login.sfbackend.Custom',
     'django.contrib.auth.backends.ModelBackend'
 }
