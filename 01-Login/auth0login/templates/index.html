@@ -1,11 +1,12 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block content %}
     <div class="login-page clearfix">
         <div class="login-box auth0-box before">
-            <img src="https://i.cloudup.com/StzWWrY34s.png" />
-            <h3>Auth0 Example</h3>
-            <p>Zero friction identity infrastructure, built for developers</p>
+            <img src="{% static "ownbackup-logo.jpeg" %}" />
+            <h3>Archiver Supervisor</h3>
+            <p> </p>
             <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/login/sf">Log In to Production Org</a>
             <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/login/sfsb">Log In to Sandbox</a>
             <a id="qsLoginBtn" class="btn btn-primary btn-lg btn-login btn-block" href="/login/sfc">Log In with Custom Domain</a>
