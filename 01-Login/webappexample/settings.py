@@ -27,7 +27,7 @@ SECRET_KEY = '*dn4z%$4b6-d1+epmb=hd1m3g#$*1*%&%x+4m_8*cvakee%=7q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web.gonzo.com']
 
 
 # Application definition
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'auth0login'
+    'auth0login',
+    'sslserver'
 ]
 
 MIDDLEWARE = [
@@ -127,26 +128,18 @@ ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-# SOCIAL AUTH AUTH0 BACKEND CONFIG
+# SOCIAL AUTH0 BACKEND CONFIG
 SOCIAL_AUTH_TRAILING_SLASH = False
-SOCIAL_AUTH_AUTH0_KEY = os.environ.get('AUTH0_CLIENT_ID')
-SOCIAL_AUTH_AUTH0_SECRET = os.environ.get('AUTH0_CLIENT_SECRET')
-SOCIAL_AUTH_AUTH0_SCOPE = [
-    'openid',
-    'profile',
-    'email'
-]
-SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+KEY = os.environ.get('CLIENT_ID')
+SECRET = os.environ.get('CLIENT_SECRET')
+OIDC_DOMAIN = os.environ.get('OIDC_DOMAIN')
 AUDIENCE = None
-if os.environ.get('AUTH0_AUDIENCE'):
-    AUDIENCE = os.environ.get('AUTH0_AUDIENCE')
-else:
-    if SOCIAL_AUTH_AUTH0_DOMAIN:
-        AUDIENCE = 'https://' + SOCIAL_AUTH_AUTH0_DOMAIN + '/userinfo'
-if AUDIENCE:
-    SOCIAL_AUTH_AUTH0_AUTH_EXTRA_ARGUMENTS = {'audience': AUDIENCE}
+# SOCIAL_AUTH_SFC_USER_FIELDS = ['username', 'email', 'organization_id']
+SOCIAL_AUTH_SFC_NO_DEFAULT_PROTECTED_USER_FIELDS = True
+SOCIAL_AUTH_SFC_EXTRA_DATA = ['organization_id', 'user_id']
+
 AUTHENTICATION_BACKENDS = {
-    'auth0login.auth0backend.Auth0',
+    'auth0login.sfbackend.Custom',
     'django.contrib.auth.backends.ModelBackend'
 }
 
