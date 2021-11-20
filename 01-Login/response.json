@@ -1,6 +1,6 @@
 {
-  'access_token': '00D4K000005N4C3!AQkAQAWeD8y8FNOEEchNJ_yRTZM4MzbQ2CnF7DuTikiQBsQSqJmDxKrCoIytL9fLBewc5.1ueseq4rc_vAN6hoBJGy3XNfwo',
-  'refresh_token': '5Aep861wfm9ssIBS__0PgVySanw2LxsbdRg2pELRdSVUL8XGAGWCISw0T747S.haTuW8_x_j_6dxCMvhq1hoMvG',
+  'access_token': '========================================',
+  'refresh_token': '==================================6dxCMvhq1hoMvG',
   'signature': 'TeRqD6FsK2rxgJLmGmyClZa/3DcqIH11BuqofnJgHqI=',
   'scope': 'lightning refresh_token content',
   'instance_url': 'https://ownbackup5-dev-ed.my.salesforce.com',
